@@ -1,7 +1,9 @@
 import React, { useEffect, useState }from 'react';
 import api from '../../Services/api';
+import { FaRegTrashAlt, FaEdit } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-import './styles.css'
+import './styles.css';
 export default function List() {
     const [veiculos, setVeiculos]  = useState([]); 
     useEffect(() => {
@@ -16,10 +18,9 @@ export default function List() {
             <header>
                 {/* <img src={logo} alt="trader logo"/> */}
 
-                <a className="button" > 
-                    {/* Ver carteira */}
-                    Lista de Veiculos 
-                </a>
+                <div className="header-container" > 
+                    <span>Lista de Veículos </span> 
+                </div>
                 
             </header>
 
@@ -28,35 +29,19 @@ export default function List() {
             <ul>
                 {veiculos.map( veiculo => (
                     <li>
-                        <strong>Placa:</strong>
+                        <strong>PLACA:</strong>
                         <p>{veiculo.placa}</p>
 
-                        <strong>Modelo:</strong>
+                        <strong>MODELO:</strong>
                         <p>{veiculo.modelo}</p>
 
-                        <strong>Ano</strong>
-                        <p>{veiculo.ano}</p>
+                        <Link to="vehicle/edit" type="button">
+                            <FaEdit size={20} color="#a8a8b3"/>
+                        </Link>
+                        <button type="button">
+                            <FaRegTrashAlt size={20} color="#a8a8b3"/>
+                        </button>
 
-                        <strong>Chassi:</strong>
-                        <p>{veiculo.chassi}</p>
-
-                        <strong>Renavam:</strong>
-                        <p>{veiculo.renavam}</p>
-
-                        <strong>Marca:</strong>
-                        <p>{veiculo.marca}</p>
-
-                        <strong>Cor:</strong>
-                        <p>{veiculo.cor}</p>
-
-                        <strong>Valor Pago:</strong>
-                        <p>{veiculo.valorPago}</p>
-
-                        <strong>Mes IPVA:</strong>
-                        <p>{veiculo.mesIpva}</p>
-
-                        <strong>Km Atual:</strong>
-                        <p>{veiculo.kamAtual}</p>
                     </li>
                 ))}
             </ul>

@@ -69,6 +69,10 @@ export default function Register() {
 
     return (
       <div className="main-container">
+        
+        <div className="header-container">
+          <span>Cadastro de novos veículos</span>  
+        </div>
         <form onSubmit={handleSubmit}>
           {/* <img src={logo} alt="Logo da rocketseat" /> */}
           <div className="input-group">

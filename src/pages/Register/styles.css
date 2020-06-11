@@ -10,6 +10,26 @@
     justify-content: center;
 }
 
+.main-container .header-container {
+    width: 70%;
+    height: 10%;
+    border: none;
+    border-radius: 10px;
+    background-color: #1E90FF;
+    margin-bottom: 60px;
+    margin-left: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container .header-container span {
+    font-size: 20px;
+    color: #000;
+    font-weight: 500;
+}
+
 .main-container form {
     width: 100%;
     max-width: 700px;
