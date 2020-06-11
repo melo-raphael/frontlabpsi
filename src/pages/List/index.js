@@ -1,12 +1,13 @@
 import React, { useEffect, useState }from 'react';
-import api from '../../services/api';
+import api from '../../Services/api';
 
+import './styles.css'
 export default function List() {
     const [veiculos, setVeiculos]  = useState([]); 
     useEffect(() => {
-        api.get('veiculos')
+        api.get('/veiculos')
             .then(response => {
-                setVeiculos(response.data);
+                setVeiculos(response.data.result);
             });
     }, []);
 

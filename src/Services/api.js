@@ -1,12 +1,7 @@
-import React, { Component } from "react";
-import "./App.css";
+import axios from "axios";
 
-import Routes from "./routes";
+const api = axios.create({
+    baseURL: "http://ec2-18-228-245-140.sa-east-1.compute.amazonaws.com"
+});
 
-class App extends Component {
-  render() {
-    return <Routes />;
-  }
-}
-
-export default App;
+export default api;

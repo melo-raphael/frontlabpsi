@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from 'react-router-dom'
 
 import "./styles.css";
-import api from "../../services/api";
+import api from "../../Services/api";
 // import logo from "../../assets/logo.svg";
 
 export default function Register() {
@@ -41,22 +41,22 @@ export default function Register() {
     const data = {
       placa,
       modelo,
-      ano,
+      ano: parseInt(ano),
       chassi,
       renavam,
       marca,
       cor,
-      valorPago,
-      mesIpva,
-      kmAtual
+      valorPago: parseFloat(valorPago),
+      mesIpva: parseInt(mesIpva),
+      kmAtual: parseFloat(kmAtual)
     }
 
     try {
-      const response = await api.post("veiculos", data);
+      const response = await api.post("/veiculos", data);
 
       alert(`Veiculo cadastrado com sucesso, placa: ${response.data.placa}`);
 
-      history.push('/list');
+      history.push('/vehicle/list');
 
     } catch (err) {
       alert('Erro no cadastro tente novamente');
@@ -68,29 +68,37 @@ export default function Register() {
 
 
     return (
-      <div id="main_container">
+      <div className="main-container">
         <form onSubmit={handleSubmit}>
           {/* <img src={logo} alt="Logo da rocketseat" /> */}
-          <input
-            placeholder="Placa"
-            value={placa}
-            onChange={ e => setPlaca(e.target.value)}
-          />
-          <input
-            placeholder="Modelo"
-            value={modelo}
-            onChange={ e => setModelo(e.target.value)}
-          />
-          <input
-            placeholder="Ano"
-            value={ano}
-            onChange={ e => setAno(e.target.value)}
-          />
-          <input
-            placeholder="Chassi"
-            value={chassi}
-            onChange={ e => setChassi(e.target.value)}
-          />
+          <div className="input-group">
+            
+            <input
+              placeholder="Placa"
+              value={placa}
+              onChange={ e => setPlaca(e.target.value)}
+            />
+            <input
+              placeholder="Modelo"
+              value={modelo}
+              onChange={ e => setModelo(e.target.value)}
+            />
+          </div>
+          <div className="input-group">
+            
+            <input
+              placeholder="Ano"
+              value={ano}
+              onChange={ e => setAno(e.target.value)}
+            />
+            <input
+              placeholder="Chassi"
+              value={chassi}
+              onChange={ e => setChassi(e.target.value)}
+            />
+          </div>
+          <div className="input-group">
+            
           <input
             placeholder="Renavam"
             value={renavam}
@@ -101,28 +109,35 @@ export default function Register() {
             value={marca}
             onChange={ e => setMarca(e.target.value)}
           />
-          <input
-            placeholder="Cor"
-            value={cor}
-            onChange={ e => setCor(e.target.value)}
-          />
-          <input
-            placeholder="Valor Pago"
-            value={valorPago}
-            onChange={ e => setValorPago(e.target.value)}
-          />
-          <input
-            placeholder="Mes IPVA"
-            value={mesIpva}
-            onChange={ e => setMesIpva(e.target.value)}
-          />
-          <input
-            placeholder="Km Atual"
-            value={kmAtual}
-            onChange={ e => setKmAtual(e.target.value)}
-          />
+          </div>
+          <div className="input-group">
+            
+            <input
+              placeholder="Cor"
+              value={cor}
+              onChange={ e => setCor(e.target.value)}
+            />
+            <input
+              placeholder="Valor Pago"
+              value={valorPago}
+              onChange={ e => setValorPago(e.target.value)}
+            />
+          </div>
+          <div className="input-group">
+            
+            <input
+              placeholder="Mes IPVA"
+              value={mesIpva}
+              onChange={ e => setMesIpva(e.target.value)}
+            />
+            <input
+              placeholder="Km Atual"
+              value={kmAtual}
+              onChange={ e => setKmAtual(e.target.value)}
+            />
+          </div>
 
-          <button type="submit">Criar</button>
+          <button className="button" type="submit">Criar</button>
         </form>
       </div>
     );

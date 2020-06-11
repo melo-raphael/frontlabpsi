@@ -1,14 +1,18 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+import Home from "./pages/Home"
 import Register from "./pages/Register";
 import List from "./pages/List";
+import Drivers from "./pages/Drivers";
 
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={Register} />
-      <Route exact path="/list" component={List} />
+    <Route exact path="/" component={Home} />
+      <Route exact path="/vehicle/register" component={Register} />
+      <Route exact path="/vehicle/list" component={List} />
+      <Route exact path="/drivers" component={Drivers} />
     </Switch>
   </BrowserRouter>
 );
