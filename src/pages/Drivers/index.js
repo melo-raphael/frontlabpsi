@@ -34,11 +34,12 @@ function Drivers () {
         api.get('/funcionario')
         .then(reponse => {
             setDrivers(reponse.data.result);
+            console.log('teste', drivers)
         });
     });
 
     return(
-        <div className="dashboard-container">
+        <div className="drivers-container">
             <header>
                 {/* <img src={logo} alt="trader logo"/> */}
 

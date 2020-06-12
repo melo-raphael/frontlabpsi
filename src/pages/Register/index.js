@@ -68,7 +68,7 @@ export default function Register() {
 
 
     return (
-      <div className="main-container">
+      <div className="register-container">
         
         <div className="header-container">
           <span>Cadastro de novos veículos</span>  

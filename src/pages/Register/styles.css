@@ -40,6 +40,6 @@
     display:  flex;
 }
 
-.main-container form .input-group input + input {
+.register-container form .input-group input + input {
     margin-left: 12px;
 }

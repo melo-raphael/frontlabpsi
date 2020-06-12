@@ -48,7 +48,7 @@ export default function List() {
                         <strong>MODELO:</strong>
                         <p>{veiculo.modelo}</p>
 
-                        <Link to="vehicle/edit" type="button">
+                        <Link className="edit"to="vehicle/edit">
                             <FaEdit size={20} color="#a8a8b3"/>
                         </Link>
                         <button onClick={() => handleDelteVehicle(veiculo.id)} type="button">
