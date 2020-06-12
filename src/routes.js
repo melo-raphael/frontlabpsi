@@ -12,9 +12,9 @@ const Routes = () => (
     <Switch>
     <Route exact path="/" component={Home} />
       <Route exact path="/vehicle/register" component={Register} />
-      <Route exact path="/vehicle/list" component={List} />
-      <Route exact path="/vehicle/edit" component={EditVehicle} />
-      <Route exact path="/drivers" component={Drivers} />
+      <Route exact path="/vehicles/list" component={List} />
+      <Route exact path="/vehicle/edit" component={EditVehicle} /> {/* esse deve mudar para poder passar os valores pela rota*/}
+      <Route exact path="/drivers/list" component={Drivers} />
     </Switch>
   </BrowserRouter>
 );

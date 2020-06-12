@@ -1,17 +1,30 @@
 import React, { useEffect, useState }from 'react';
-import api from '../../Services/api';
 import { FaRegTrashAlt, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
+
+import api from '../../Services/api';
+
 export default function List() {
     const [veiculos, setVeiculos]  = useState([]); 
+    
     useEffect(() => {
         api.get('/veiculos')
             .then(response => {
                 setVeiculos(response.data.result);
             });
-    }, []);
+    },[]);
+
+    async function handleDelteVehicle (id) {
+        try{
+            await api.delete(`/veiculos/${id}`);
+            setVeiculos(veiculos.filter(veiculo => veiculo.id !== id));
+        } catch(error) {
+            alert('Erro ao deletar este veículo, tente novamente');
+            console.log('erro ao deletar veiculo', error);
+        }
+    }
 
     return (
         <div className="dashboard-container">
@@ -28,7 +41,7 @@ export default function List() {
 
             <ul>
                 {veiculos.map( veiculo => (
-                    <li>
+                    <li key={veiculo.id}>
                         <strong>PLACA:</strong>
                         <p>{veiculo.placa}</p>
 
@@ -38,7 +51,7 @@ export default function List() {
                         <Link to="vehicle/edit" type="button">
                             <FaEdit size={20} color="#a8a8b3"/>
                         </Link>
-                        <button type="button">
+                        <button onClick={() => handleDelteVehicle(veiculo.id)} type="button">
                             <FaRegTrashAlt size={20} color="#a8a8b3"/>
                         </button>
 
