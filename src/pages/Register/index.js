@@ -56,7 +56,7 @@ export default function Register() {
 
       alert(`Veiculo cadastrado com sucesso, placa: ${response.data.placa}`);
 
-      history.push('/vehicle/list');
+      history.push('/vehicles/list');
 
     } catch (err) {
       alert('Erro no cadastro tente novamente');

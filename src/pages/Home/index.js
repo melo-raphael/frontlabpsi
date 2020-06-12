@@ -13,8 +13,8 @@ function Home () {
                 <div className="actions-container">
                     {/*Merda*/}
                     <Link to="/vehicle/register" className="button">Cadastrar veículos</Link>                    
-                    <Link to="/vehicle/list" className="button">Listar veículos</Link>                    
-                    <Link to="/drivers" className="button">Listar motoristas</Link>                    
+                    <Link to="/vehicles/list" className="button">Listar veículos</Link>                    
+                    <Link to="/drivers/list" className="button">Listar motoristas</Link>                    
                 </div>
            </section>
        </div>

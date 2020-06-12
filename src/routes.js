@@ -13,7 +13,9 @@ const Routes = () => (
     <Route exact path="/" component={Home} />
       <Route exact path="/vehicle/register" component={Register} />
       <Route exact path="/vehicles/list" component={List} />
-      <Route exact path="/vehicle/edit" component={EditVehicle} /> {/* esse deve mudar para poder passar os valores pela rota*/}
+      <Route exact path="/vehicle/edit"
+          render={(props) => <EditVehicle {...props } />} 
+      /> {/* esse deve mudar para poder passar os valores pela rota*/}
       <Route exact path="/drivers/list" component={Drivers} />
     </Switch>
   </BrowserRouter>

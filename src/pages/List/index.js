@@ -48,7 +48,7 @@ export default function List() {
                         <strong>MODELO:</strong>
                         <p>{veiculo.modelo}</p>
 
-                        <Link className="edit"to="vehicle/edit">
+                        <Link className="edit"to={{pathname: "/vehicle/edit", state: {veiculo}}} >
                             <FaEdit size={20} color="#a8a8b3"/>
                         </Link>
                         <button onClick={() => handleDelteVehicle(veiculo.id)} type="button">
