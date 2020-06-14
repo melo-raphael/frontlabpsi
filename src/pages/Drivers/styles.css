@@ -1,17 +1,32 @@
+.external-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
 .drivers-container {
     width: 100%;
     max-width: 1180px;
-    padding: 0 30px;
-    margin: 32px auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
+.drivers-container header {
+    width: 100%;
+}
 .drivers-container header .header-container {
+    margin: 64px auto;
     width: 70%;
     height: 60px;
     border: none;
     border-radius: 10px;
     background-color: #1E90FF;
-    margin-bottom: 60px;
+    margin-bottom: 32px;
     margin-left: 110px;
 
     display: flex;
@@ -58,15 +73,17 @@
 }
 
 .drivers-container h1 {
-    margin-top: 80px;
+    margin-top: 32px;
     margin-bottom: 24px;
 }
 
 .drivers-container ul {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 24px;
     list-style: none;
+    margin-bottom: 16px;
 }
 
 .drivers-container ul li {

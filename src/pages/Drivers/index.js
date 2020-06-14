@@ -1,44 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect }from 'react';
 import { Link } from 'react-router-dom';
-import { FaEdit } from 'react-icons/fa';
-// Id
-// Nome
-// Sobrenome
-// Rg
-// Cpf
-// DataNascimento
-// Email
-// EstadoCivil
-// Sexo
-// UsuarioPerfil
-// NumeroTelefone
-// CNHNumero
-// CNHValidade
-// CNHCategoria
+import { FaExpandArrowsAlt } from 'react-icons/fa';
+
 import './styles.css';
-import { useState } from 'react';
-import { useEffect } from 'react';
+
 import api from '../../Services/api';
 
 
 
 function Drivers () {
-    const [drivers, setDrivers] = useState([
-        {id: 1, nome: 'teste', sobrenome: 'teste', cpf: '121212121'},
-        {id: 2, nome: 'teste', sobrenome: 'teste', cpf: '121212121'},
-        {id: 3, nome: 'teste', sobrenome: 'teste', cpf: '121212121'},
-        {id: 4, nome: 'teste', sobrenome: 'teste', cpf: '121212121'}
-    ]);
+    const [drivers, setDrivers] = useState([]);
 
     useEffect(() => {
         api.get('/funcionario')
         .then(reponse => {
-            setDrivers(reponse.data.result);
-            console.log('teste', drivers)
+            setDrivers(reponse.data);
+        })
+        .catch(error => {
+            console.log('Erro ao buscar motoristas',error);
         });
-    });
+    }, []);
 
     return(
+        <div className="external-container">
+
         <div className="drivers-container">
             <header>
                 {/* <img src={logo} alt="trader logo"/> */}
@@ -52,7 +37,7 @@ function Drivers () {
             <h1>Motoristas disponíveis</h1>
 
             <ul>
-                {drivers.map( driver => (
+                {drivers.map( (driver, index) => (
                     <li key={driver.id}>
                         <strong>NOME:</strong>
                         <p>{`${driver.nome} ${driver.sobrenome}`}</p>
@@ -60,14 +45,16 @@ function Drivers () {
                         <strong>CPF:</strong>
                         <p>{driver.cpf}</p>
 
-                        <Link to="vehicle/edit" type="button">
-                            <FaEdit size={20} color="#a8a8b3"/>
+                        <Link to={{pathname: `/driver/${index + 1}`, state: {driver}}} type="button">
+                            <FaExpandArrowsAlt size={20} color="#a8a8b3"/>
                         </Link>
 
                     </li>
                 ))}
             </ul>
         </div>
+        </div>
+
     );
 }
 

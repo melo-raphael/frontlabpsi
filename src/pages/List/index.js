@@ -27,6 +27,8 @@ export default function List() {
     }
 
     return (
+        <div className="external-container">
+
         <div className="dashboard-container">
             <header>
                 {/* <img src={logo} alt="trader logo"/> */}
@@ -59,5 +61,7 @@ export default function List() {
                 ))}
             </ul>
         </div>
+        </div>
+
     );
 }

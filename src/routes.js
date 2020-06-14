@@ -4,9 +4,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home"
 import Register from "./pages/Register";
 import List from "./pages/List";
-import Drivers from "./pages/Drivers";
 import EditVehicle from "./pages/EditVehicle";
 import Navbar from "./components/Navbar";
+import Drivers from "./pages/Drivers";
+import DriverDetail from "./pages/DriverDetail";
+import DriverDeatails from "./pages/DriverDetail";
 
 const Routes = () => (
   <BrowserRouter>
@@ -29,6 +31,7 @@ const UsefullRoutes = () => {
           render={(props) => <EditVehicle {...props } />} 
       /> 
       <Route exact path="/drivers/list" component={Drivers} />
+      <Route exact path="/driver/:driverId" component={DriverDeatails} />
     </>
   );
 }
