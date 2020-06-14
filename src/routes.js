@@ -6,19 +6,31 @@ import Register from "./pages/Register";
 import List from "./pages/List";
 import Drivers from "./pages/Drivers";
 import EditVehicle from "./pages/EditVehicle";
+import Navbar from "./components/Navbar";
 
 const Routes = () => (
   <BrowserRouter>
+   
     <Switch>
-    <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Home} />
+      <Route component={UsefullRoutes} />
+      
+    </Switch>
+  </BrowserRouter>
+);
+
+const UsefullRoutes = () => {
+  return (
+    <>
+      <Navbar />
       <Route exact path="/vehicle/register" component={Register} />
       <Route exact path="/vehicles/list" component={List} />
       <Route exact path="/vehicle/edit"
           render={(props) => <EditVehicle {...props } />} 
-      /> {/* esse deve mudar para poder passar os valores pela rota*/}
+      /> 
       <Route exact path="/drivers/list" component={Drivers} />
-    </Switch>
-  </BrowserRouter>
-);
+    </>
+  );
+}
 
 export default Routes;
