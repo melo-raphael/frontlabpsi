@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './styles.css';
-import Drivers from '../Drivers';
 
 
 function DriverDeatails (props) {
